@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+<head>
+
+</head>
+
+<input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}">
+<section class="vh-100 bg-image"
+  style="background-image: url('https://www.sixt.fr/magazine/wp-content/uploads//sites/3/2018/06/merco-benz-benz-benz.jpg');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Register</h2>
+              <div id="registration_form">
+              <div><label for="registration_form_prenom" class="required">Prenom</label>
+              <input type="text" id="registration_form_prenom" name="registration_form[prenom]" required="required" maxlength="255" class="form-control form-control-lg">
+              </div>
+              
+<div class="Register">
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.username) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+</div>
+
+{% endblock %}
